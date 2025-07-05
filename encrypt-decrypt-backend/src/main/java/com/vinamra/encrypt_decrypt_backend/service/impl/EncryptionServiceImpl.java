@@ -181,7 +181,6 @@ public class EncryptionServiceImpl implements EncrytionService {
                 if (tempOriginalFilePath != null) Files.deleteIfExists(tempOriginalFilePath);
                 if (tempEncryptedFilePath != null) Files.deleteIfExists(tempEncryptedFilePath);
                 if (tempQrFilePath != null) Files.deleteIfExists(tempQrFilePath);
-                if (zipPath != null) Files.deleteIfExists(zipPath); // Delete the final zip too after email/return
                 log.info("Temporary files cleaned up after encryption for: {}", originalFileName);
             } catch (IOException e) {
                 log.warn("Failed to clean up temporary files after encryption for {}: {}", originalFileName, e.getMessage());
