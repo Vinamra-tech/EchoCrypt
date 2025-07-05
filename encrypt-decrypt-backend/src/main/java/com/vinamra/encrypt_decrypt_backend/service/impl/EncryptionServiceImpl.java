@@ -192,6 +192,12 @@ public class EncryptionServiceImpl implements EncrytionService {
     @Override
     public DecryptionDTO handleDecryption(MultipartFile multipartFile, String password) throws Exception {
         String encryptedFileName = multipartFile.getOriginalFilename();
+        // --- START FIX for original_file_name NOT NULL constraint ---
+        if (encryptedFileName == null || encryptedFileName.trim().isEmpty()) {
+            encryptedFileName = "unnamed_file_" + System.currentTimeMillis(); // Provide a default name
+            log.warn("MultipartFile.getOriginalFilename() returned null or empty. Using default name: {}", encryptedFileName);
+        }
+        // --- END FIX ---
         log.info("Decryption request for file: {}", encryptedFileName);
         Path tempDir = Files.createTempDirectory("decrypt"); // Unique temporary directory
         Path zipPath = tempDir.resolve(encryptedFileName); // Copy uploaded zip to tempDir
