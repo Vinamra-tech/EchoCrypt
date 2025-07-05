@@ -39,7 +39,7 @@ target/
 .settings/
 *.txt
 *.enc.txt
-*.png
+*.pngzz
 
 # OS files
 .DS_Store
