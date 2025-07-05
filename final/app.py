@@ -1,5 +1,4 @@
 import streamlit as st
-import time
 
 # Set the page config
 st.set_page_config(page_title="EchoCrypt", layout="centered")
