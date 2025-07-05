@@ -28,14 +28,18 @@ target/
 *.iml
 *.log
 
-# IntelliJ / Eclipse
+# IntelliJ / Eclipse / VS Code
 .idea/
+.vscode/
 *.iws
 *.ipr
 *.iml
 *.classpath
 *.project
 .settings/
+*.txt
+*.enc.txt
+*.png
 
 # OS files
 .DS_Store
