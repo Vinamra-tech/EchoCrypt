@@ -1,0 +1,42 @@
+# === Python ===
+__pycache__/
+*.py[cod]
+*.egg
+*.egg-info/
+dist/
+build/
+.env
+*.sqlite3
+*.log
+
+# Streamlit config
+.streamlit/
+
+# Virtual environments
+venv/
+env/
+ENV/
+
+# Jupyter Notebooks
+.ipynb_checkpoints
+
+# === Java / Spring Boot ===
+target/
+*.class
+*.jar
+*.war
+*.iml
+*.log
+
+# IntelliJ / Eclipse
+.idea/
+*.iws
+*.ipr
+*.iml
+*.classpath
+*.project
+.settings/
+
+# OS files
+.DS_Store
+Thumbs.db
