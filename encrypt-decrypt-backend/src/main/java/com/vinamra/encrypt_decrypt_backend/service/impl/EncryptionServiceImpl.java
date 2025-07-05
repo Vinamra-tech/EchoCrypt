@@ -78,6 +78,12 @@ public class EncryptionServiceImpl implements EncrytionService {
     @Override
     public EncryptionDTO handleEncryption(MultipartFile multipartFile, Optional<String> userMailOptional) throws Exception {
         String originalFileName = multipartFile.getOriginalFilename();
+        // --- START FIX for original_file_name NOT NULL constraint ---
+        if (originalFileName == null || originalFileName.trim().isEmpty()) {
+            originalFileName = "unnamed_file_" + System.currentTimeMillis(); // Provide a default name
+            log.warn("MultipartFile.getOriginalFilename() returned null or empty. Using default name: {}", originalFileName);
+        }
+        // --- END FIX ---
         log.info("Encryption request for file: {}", originalFileName);
         log.debug("File size: {}", multipartFile.getSize());
         log.debug("Email (optional): {}", userMailOptional.orElse("N/A"));
