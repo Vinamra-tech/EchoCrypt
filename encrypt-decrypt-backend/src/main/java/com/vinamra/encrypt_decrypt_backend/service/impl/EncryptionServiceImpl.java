@@ -310,7 +310,7 @@ public class EncryptionServiceImpl implements EncrytionService {
             String base64File = Base64.getEncoder().encodeToString(fileBytes);
 
             Map<String, Object> body = new HashMap<>();
-            body.put("original_file", base64File); // Assuming Flask expects "original_file" for encryption
+            body.put("encrypted_file", base64File); // Assuming Flask expects "original_file" for encryption
 
             RequestEntity<Map<String, Object>> requestEntity = new RequestEntity<>(body, headers, HttpMethod.POST, URI.create(url));
             ResponseEntity<Map<String, Object>> response = restTemplate.exchange(requestEntity, new ParameterizedTypeReference<Map<String, Object>>() {});
